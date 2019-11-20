@@ -26,6 +26,7 @@ int main()
 		outtextxy(100, 100, "Welcome to TicTacToe Game !");
 		outtextxy(100, 150, "       New Game");
 		outtextxy(100, 200, "         Exit");
+		//outtextxy(100, 250, "         So o");
 		
 		if(ismouseclick(WM_LBUTTONDOWN)){
 			getmouseclick(WM_LBUTTONDOWN, x, y);
@@ -118,10 +119,10 @@ int main()
 		
 			if(win == 1){
 				int x1 = p[0] * size + margin + size / 2;
-				int x2 = p[1] * size + margin + size / 2;
-				int y1 = p[2] * size + margin + size / 2;
+				int y1 = p[1] * size + margin + size / 2;
+				int x2 = p[2] * size + margin + size / 2;
 				int y2 = p[3] * size + margin + size / 2;
-				printf("%d %d %d %d", p[0], p[1], p[2], p[3]); 
+				//printf("%d %d %d %d", x1, y1, x2, y2); 
 				outtextxy(200, n * size + margin + 10, "player 1 win!");
 				line(x1, y1, x2, y2);
 				
@@ -131,10 +132,10 @@ int main()
 			}
 			if(win == 2){
 				int x1 = p[0] * size + margin + size / 2;
-				int x2 = p[1] * size + margin + size / 2;
-				int y1 = p[2] * size + margin + size / 2;
+				int y1 = p[1] * size + margin + size / 2;
+				int x2 = p[2] * size + margin + size / 2;
 				int y2 = p[3] * size + margin + size / 2;
-				printf("%d %d %d %d", p[0], p[1], p[2], p[3]);
+				//printf("%d %d %d %d", x1, y1, x2, y2);
 				outtextxy(200, n * size + margin + 10, "player 2 win!");
 				line(x1, y1, x2, y2);
 				
@@ -151,7 +152,8 @@ int main()
 		}
 	}
 	
-	if(choose == 2) break;
+	if(choose == 2) break;         // Neu chon Exit
+	
 		
 	}
 	
@@ -161,6 +163,8 @@ int main()
 		
 	return 0;
 }
+
+
 
 int * checkWin(int p, int x, int y){
 	static int ar[5];
@@ -178,8 +182,6 @@ int * checkWin(int p, int x, int y){
 		while(true){
 			if(xt1 > 0){
 				xt1--;
-			//	ar[0] = xt1;    	 // luu gia tri x1
-			//	ar[1] = y;       	 // luu gia tri y1
 				if(arrLoca[xt1][y] == p){
 					count++;
 				}else{ 
@@ -188,8 +190,6 @@ int * checkWin(int p, int x, int y){
 			}
 			if(xt2 < n - 1){
 				xt2++;
-			//	ar[2] = xt2;    	 // luu gia tri x2
-			//	ar[3] = y;     	     // luu gia tri y2
 				if(arrLoca[xt2][y] == p){
 					count++;
 				}else{
@@ -217,8 +217,6 @@ int * checkWin(int p, int x, int y){
 		while(true){
 			if(yt1 > 0){
 				yt1--;
-			//	ar[0] = x;			 // luu x1;
-			//	ar[1] = yt1;		 // luu y1
 				if(arrLoca[x][yt1] == p){
 					count++;
 				}else{
@@ -227,8 +225,6 @@ int * checkWin(int p, int x, int y){
 			}
 			if(yt2 < n - 1){
 				yt2++;
-			//	ar[2] = x;           // luu x2
-			//	ar[3] = yt2;		 // luu y2
 				if(arrLoca[x][yt2] == p){
 					count++;
 				}else{
@@ -257,8 +253,6 @@ int * checkWin(int p, int x, int y){
 			if(xt1 > 0 && yt1 > 0){
 				xt1--;
 				yt1--;
-			//	ar[0] = xt1;       // luu x1
-			//	ar[1] = yt1;       // luu y1
 				if(arrLoca[xt1][yt1] == p){
 					count++;
 				}else{
@@ -269,8 +263,6 @@ int * checkWin(int p, int x, int y){
 			if(xt2 < n - 1 && yt2 < n - 1){
 				xt2++;
 				yt2++;
-			//	ar[2] = xt2;        // luu x2
-			//	ar[3] = yt2;		// luu y2
 				if(arrLoca[xt2][yt2] == p){
 					count++;
 				}else{
@@ -299,8 +291,6 @@ int * checkWin(int p, int x, int y){
 			if(xt1 < n - 1 && yt1 > 0){
 				xt1++;
 				yt1--;
-			//	ar[0] = xt1;         // luu x1
-			//	ar[1] = yt1;         // luu y1
 				if(arrLoca[xt1][yt1] == p){
 					count++;
 				}else{
@@ -311,8 +301,6 @@ int * checkWin(int p, int x, int y){
 			if(xt2 > 0 && yt2 < n - 1){
 				xt2--;
 				yt2++;
-			//	ar[2] = xt2;  		 // luu x2;
-			//	ar[3] = yt2; 		 // luu y2;
 				if(arrLoca[xt2][yt2] == p){
 					count++;
 				}else{
