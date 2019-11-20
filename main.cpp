@@ -1,8 +1,8 @@
 #include <winbgim.h> 
 #include <stdio.h>
 
-const int n = 3;			           // so O
-int level = 3;				   // muc Win
+const int n = 5;			           // so O
+int level = 4;				   // muc Win
 int * checkWin(int, int, int);  // kiem tra thang hay chua
 int arrLoca[n][n];   		   // mang chua cac o da danh
 
@@ -15,10 +15,13 @@ int main()
    	cleardevice();				   // xoa man hinh
 	setcolor(14);				   // set text color
 	
+	
+	
 	int margin = 40;    		   // can le
 	int size = 40;      		   // kich thuoc o = 20
 	int x, y;           		   // toa do chuot
 	int *p;						   // con tro p nhan mang tra ve Win
+
 	
 	while(true){
 		int choose = 0;
@@ -26,7 +29,6 @@ int main()
 		outtextxy(100, 100, "Welcome to TicTacToe Game !");
 		outtextxy(100, 150, "       New Game");
 		outtextxy(100, 200, "         Exit");
-		//outtextxy(100, 250, "         So o");
 		
 		if(ismouseclick(WM_LBUTTONDOWN)){
 			getmouseclick(WM_LBUTTONDOWN, x, y);
@@ -69,9 +71,8 @@ int main()
 						if(arrLoca[xAr][yAr] == 0){
 							arrLoca[xAr][yAr] = 1;
 							turn = !turn;
-							/*if(checkWin(arrLoca[xAr][yAr], xAr, yAr)){
-								win = 1;
-							}*/
+							
+							// check win
 							p = checkWin(arrLoca[xAr][yAr], xAr, yAr);
 							if(*(p + 4) == 1){         // neu ar[4] != 0 thi la dung
 								win = 1;
@@ -83,9 +84,8 @@ int main()
 						if(arrLoca[xAr][yAr] == 0){
 							arrLoca[xAr][yAr] = 2;
 							turn = !turn;
-							/*if(checkWin(arrLoca[xAr][yAr], xAr, yAr)){
-								win = 2;
-							}*/
+							
+							//check win
 							p = checkWin(arrLoca[xAr][yAr], xAr, yAr);
 							if(*(p+4) == 1){
 								win = 2;
@@ -122,7 +122,7 @@ int main()
 				int y1 = p[1] * size + margin + size / 2;
 				int x2 = p[2] * size + margin + size / 2;
 				int y2 = p[3] * size + margin + size / 2;
-				//printf("%d %d %d %d", x1, y1, x2, y2); 
+				
 				outtextxy(200, n * size + margin + 10, "player 1 win!");
 				line(x1, y1, x2, y2);
 				
@@ -135,7 +135,7 @@ int main()
 				int y1 = p[1] * size + margin + size / 2;
 				int x2 = p[2] * size + margin + size / 2;
 				int y2 = p[3] * size + margin + size / 2;
-				//printf("%d %d %d %d", x1, y1, x2, y2);
+				
 				outtextxy(200, n * size + margin + 10, "player 2 win!");
 				line(x1, y1, x2, y2);
 				
@@ -153,7 +153,15 @@ int main()
 	}
 	
 	if(choose == 2) break;         // Neu chon Exit
-	
+	/*if(choose == 2){
+		cleardevice();
+		while(true){
+			delay(0.0001);
+			outtextxy(100, 100, "input number !");
+			scanf("%d", &n);
+			break;
+		}
+	}*/
 		
 	}
 	
@@ -167,7 +175,7 @@ int main()
 
 
 int * checkWin(int p, int x, int y){
-	static int ar[5];
+	static int ar[5];              // tra ve con tro thi phai static
 	for(int i = 0; i < 5; i++)
 		ar[i] = 0;
 	
@@ -254,7 +262,7 @@ int * checkWin(int p, int x, int y){
 				xt1--;
 				yt1--;
 				if(arrLoca[xt1][yt1] == p){
-					count++;
+					count++;   
 				}else{
 					xt1 = 0;
 					yt1 = 0;
@@ -322,7 +330,7 @@ int * checkWin(int p, int x, int y){
 //	}
 	
 	
-	
+	//hao
 	
 	return ar;
 }
