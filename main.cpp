@@ -330,7 +330,7 @@ int * checkWin(int p, int x, int y){
 //	}
 	
 	
-	//hao
+	//hao skdjkls
 	
 	return ar;
 }
