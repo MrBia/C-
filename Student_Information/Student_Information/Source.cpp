@@ -22,8 +22,8 @@ struct Student {
 
 int main()
 {
-	list <Student> listStudent;
-	Student stdn;
+	list <Student*> listStudent;
+	//Student* stdn = new Student;
 	ofstream file;
 
 	
@@ -49,20 +49,21 @@ int main()
 
 					
 					for (int i = 0; i < count; i++) {
+						Student* stdn = new Student;
 						cout << "student " << i + 1 << "\n";
 						
-						stdn.id = inputID();			// nhap ID
+						(*stdn).id = inputID();			// nhap ID
 
 						if (listStudent.size() > 0) {                    // neu lon hon 1 student thi kiem tra id
 							bool check = true;
-							list<Student>::iterator p;
+							list<Student*>::iterator p;
 							while (check) {
 								check = false;
 								for (p = listStudent.begin(); p != listStudent.end(); p++) {
-									if ((*p).id == stdn.id) {
+									if ((**p).id == (*stdn).id) {
 										check = true;
 										cout << "id khong duoc trung, nhap lai: ";
-										stdn.id = inputID();
+										(*stdn).id = inputID();
 										break;
 									}
 								}
@@ -71,17 +72,17 @@ int main()
 
 
 						cout << "name: ";
-						getline(cin, stdn.name);
+						getline(cin, (*stdn).name);
 
-						//cin >> stdn.score;
-						stdn.score = inputScore();
-						while ((stdn.score < 0 || stdn.score > 10)) {           // thieu kiem tra nhap vao la chuoi hay so
+						(*stdn).score = inputScore();
+						while (((*stdn).score < 0 || (*stdn).score > 10)) {           // thieu kiem tra nhap vao la chuoi hay so
 							cout << "nhap lai! gia tri nam trong khoang 0-10\n";
-							//cin >> stdn.score;
-							stdn.score = inputScore();
+
+							(*stdn).score = inputScore();
 						}
 
 						listStudent.push_back(stdn);
+						//delete stdn;
 					}
 					break;
 				}
@@ -94,11 +95,11 @@ int main()
 				cout << setw(30) << left << "NAME";
 				cout << setw(20) << left << "SCORE" << "\n";
 
-				list<Student>::iterator ptr;
+				list<Student*>::iterator ptr;
 				for (ptr = listStudent.begin(); ptr != listStudent.end(); ptr++) {
-					cout << setw(10) << left << (*ptr).id;
-					cout << setw(30) << left << (*ptr).name;
-					cout << setw(20) << left << (*ptr).score << "\n";
+					cout << setw(10) << left << (**ptr).id;
+					cout << setw(30) << left << (**ptr).name;
+					cout << setw(20) << left << (**ptr).score << "\n";
 				}
 
 				
@@ -115,9 +116,9 @@ int main()
 				}
 				else {
 					cout << "file is saved\n";
-					list<Student>::iterator p;
+					list<Student*>::iterator p;
 					for (p = listStudent.begin(); p != listStudent.end(); p++) {
-						file << (*p).id << " " << (*p).name << " " << (*p).score << "\n";
+						file << (**p).id << " " << (**p).name << " " << (**p).score << "\n";
 					}
 				}
 				file.close();
@@ -144,6 +145,10 @@ int main()
 
 			case 5: {
 				exit = 1;
+				list<Student*>::iterator p;
+				for (p = listStudent.begin(); p != listStudent.end(); p++) {
+					delete* p;
+				}
 				break;
 			}
 		}
