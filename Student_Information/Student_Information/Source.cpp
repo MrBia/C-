@@ -1,7 +1,9 @@
 #include <iostream>
-#include <string.h>
+#include <string>
 #include <list>
 #include <iterator>
+#include <iomanip>
+
 using namespace std;
 
 struct Student {
@@ -42,10 +44,32 @@ int main()
 						cout << "student " << i + 1 << "\n";
 						cout << "id: ";
 						cin >> stdn.id;
+						if (listStudent.size() > 0) {                    // neu lon hon 1 student thi kiem tra id
+							bool check = true;
+							list<Student> ::iterator p;
+							while (check) {
+								check = false;
+								for (p = listStudent.begin(); p != listStudent.end(); p++) {
+									if ((*p).id == stdn.id) {
+										check = true;
+										cout << "id khong duoc trung, nhap lai: ";
+										cin >> stdn.id;
+										break;
+									}
+								}
+							}
+						}
+
+						cin.ignore();
 						cout << "name: ";
-						cin >> stdn.name;
+						getline(cin, stdn.name);
+
 						cout << "score: ";
 						cin >> stdn.score;
+						while ((stdn.score < 0 || stdn.score > 10)) {           // thieu kiem tra nhap voa la chuoi hay so
+							cout << "nhap lai! gia tri nam trong khoang 0-10\n";
+							cin >> stdn.score;
+						}
 
 						listStudent.push_back(stdn);
 					}
@@ -55,12 +79,16 @@ int main()
 			}
 
 			case 2: {
+				cout << "List Student: \n";
+				cout << setw(10) << left << "ID";
+				cout << setw(30) << left << "NAME";
+				cout << setw(20) << left << "SCORE" << "\n";
 
 				list<Student>::iterator ptr;
 				for (ptr = listStudent.begin(); ptr != listStudent.end(); ptr++) {
-					cout << "id: "<< (*ptr).id;
-					cout << "name: " << (*ptr).name;
-					cout << "score: " << (*ptr).score;
+					cout << setw(10) << left << (*ptr).id;
+					cout << setw(30) << left << (*ptr).name;
+					cout << setw(20) << left << (*ptr).score << "\n";
 				}
 
 				
