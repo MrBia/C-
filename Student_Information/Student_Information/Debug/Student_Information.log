@@ -1,6 +1,6 @@
 ﻿  Source.cpp
 C:\Users\Admin\Desktop\C-\Student_Information\Student_Information\Source.cpp(77): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Users\Admin\Desktop\C-\Student_Information\Student_Information\Source.cpp(81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Admin\Desktop\C-\Student_Information\Student_Information\Source.cpp(163): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Admin\Desktop\C-\Student_Information\Student_Information\Source.cpp(171): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\C-\Student_Information\Student_Information\Source.cpp(165): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\C-\Student_Information\Student_Information\Source.cpp(173): warning C4018: '<': signed/unsigned mismatch
   Student_Information.vcxproj -> C:\Users\Admin\Desktop\C-\Student_Information\Debug\Student_Information.exe

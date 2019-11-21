@@ -135,7 +135,7 @@ int main()
 				else {
 					while (!f.eof()) {
 						string s;
-						f >> s;
+						getline(f, s);
 						cout << s << "\n";
 					}
 				}
