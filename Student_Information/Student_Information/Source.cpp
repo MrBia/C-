@@ -7,6 +7,11 @@
 
 using namespace std;
 
+int input();                          // nhap lua chon
+int inputNum();                       // nhap so luong student
+bool isNumber(string str);			  // kiem tra co phai so khong
+int strToNum(string str);			  // chuyen chuoi thanh so
+
 struct Student {
 	int id;
 	string name;
@@ -28,26 +33,26 @@ int main()
 		cout << "2. Display\n";
 		cout << "3. Save to file\n";
 		cout << "4. Load from file\n";
-		cout << "0. Exit\n";
+		cout << "5. Exit\n";
 		cout << "-----------------\n";
-		cout << "Choose: ";
-		cin >> choose;
+		
+		choose = input();   // nhap lua chon
 
 		switch (choose){
 			case 1: {
 				cout << "Input: \n";
 				while (true) {
 					int count;
-					cout << "Input count of student: ";
-					cin >> count;
+					count = inputNum();                // nhap so luong student
 
+					
 					for (int i = 0; i < count; i++) {
 						cout << "student " << i + 1 << "\n";
 						cout << "id: ";
 						cin >> stdn.id;
 						if (listStudent.size() > 0) {                    // neu lon hon 1 student thi kiem tra id
 							bool check = true;
-							list<Student> ::iterator p;
+							list<Student>::iterator p;
 							while (check) {
 								check = false;
 								for (p = listStudent.begin(); p != listStudent.end(); p++) {
@@ -67,7 +72,7 @@ int main()
 
 						cout << "score: ";
 						cin >> stdn.score;
-						while ((stdn.score < 0 || stdn.score > 10)) {           // thieu kiem tra nhap voa la chuoi hay so
+						while ((stdn.score < 0 || stdn.score > 10)) {           // thieu kiem tra nhap vao la chuoi hay so
 							cout << "nhap lai! gia tri nam trong khoang 0-10\n";
 							cin >> stdn.score;
 						}
@@ -123,7 +128,7 @@ int main()
 				else {
 					while (!file.eof()) {
 						string s;
-						file.get;
+						//file >> s;
 						cout << s << "\n";
 					}
 				}
@@ -131,7 +136,7 @@ int main()
 				break;
 			}
 
-			case 0: {
+			case 5: {
 				exit = 1;
 				break;
 			}
@@ -142,3 +147,64 @@ int main()
 
 	return 0;
 }
+
+bool isNumber(string str) {
+	for (int i = 0; i < str.length(); i++) {
+		if (str[i] < '0' || str[i] > '9') return false;
+	}
+	return true;
+}
+
+int strToNum(string str) {
+	int num = 0;
+	for (int i = 0; i < str.length(); i++) {
+		num = num * 10 + (str[i] - 48);
+	}
+
+	return num;
+}
+
+int input() {
+	string c;
+	int choose = 5;
+	while (true) {
+		cout << "Choose: ";
+		getline(cin, c);
+		if (isNumber(c)) {
+			choose = strToNum(c);
+		}
+		else {
+			cout << "Nhap lai\n";
+			continue;
+		}
+		if (choose < 0 || choose > 4) {
+			cout << "Nhap lai\n";
+			continue;
+		}
+		else {
+			break;
+		}
+	}
+
+	return choose;
+}
+
+int inputNum() {
+	string c;
+	int num = 0;
+	while (true) {
+		cout << "Input count of student: ";
+		getline(cin, c);
+
+		if (isNumber(c)) {
+			num = strToNum(c);
+			break;
+		}
+		else {
+			cout << "Nhap lai\n";
+		}
+	}
+	return num;
+}
+
+// ham tra ve so 0

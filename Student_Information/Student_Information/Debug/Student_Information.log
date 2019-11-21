@@ -1,2 +1,4 @@
 ﻿  Source.cpp
-C:\Users\Admin\Desktop\C-\Student_Information\Student_Information\Source.cpp(126): error C2676: binary '>>': 'std::ofstream' does not define this operator or a conversion to a type acceptable to the predefined operator
+C:\Users\Admin\Desktop\C-\Student_Information\Student_Information\Source.cpp(152): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\C-\Student_Information\Student_Information\Source.cpp(160): warning C4018: '<': signed/unsigned mismatch
+  Student_Information.vcxproj -> C:\Users\Admin\Desktop\C-\Student_Information\Debug\Student_Information.exe
