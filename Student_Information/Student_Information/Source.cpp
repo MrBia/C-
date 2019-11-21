@@ -11,6 +11,8 @@ int input();                          // nhap lua chon
 int inputNum();                       // nhap so luong student
 bool isNumber(string str);			  // kiem tra co phai so khong
 int strToNum(string str);			  // chuyen chuoi thanh so
+int inputID();                        // nhap id
+int inputScore();					  // nhap score
 
 struct Student {
 	int id;
@@ -37,6 +39,7 @@ int main()
 		cout << "-----------------\n";
 		
 		choose = input();   // nhap lua chon
+		//if (choose == 0) choose = input();
 
 		switch (choose){
 			case 1: {
@@ -48,8 +51,9 @@ int main()
 					
 					for (int i = 0; i < count; i++) {
 						cout << "student " << i + 1 << "\n";
-						cout << "id: ";
-						cin >> stdn.id;
+						
+						stdn.id = inputID();			// nhap ID
+
 						if (listStudent.size() > 0) {                    // neu lon hon 1 student thi kiem tra id
 							bool check = true;
 							list<Student>::iterator p;
@@ -59,22 +63,23 @@ int main()
 									if ((*p).id == stdn.id) {
 										check = true;
 										cout << "id khong duoc trung, nhap lai: ";
-										cin >> stdn.id;
+										stdn.id = inputID();
 										break;
 									}
 								}
 							}
 						}
 
-						cin.ignore();
+
 						cout << "name: ";
 						getline(cin, stdn.name);
 
-						cout << "score: ";
-						cin >> stdn.score;
+						//cin >> stdn.score;
+						stdn.score = inputScore();
 						while ((stdn.score < 0 || stdn.score > 10)) {           // thieu kiem tra nhap vao la chuoi hay so
 							cout << "nhap lai! gia tri nam trong khoang 0-10\n";
-							cin >> stdn.score;
+							//cin >> stdn.score;
+							stdn.score = inputScore();
 						}
 
 						listStudent.push_back(stdn);
@@ -110,7 +115,7 @@ int main()
 					cout << "cannot open file \n";
 				}
 				else {
-					cout << "file is opened\n";
+					cout << "file is saved\n";
 					list<Student>::iterator p;
 					for (p = listStudent.begin(); p != listStudent.end(); p++) {
 						file << (*p).id << " " << (*p).name << " " << (*p).score << "\n";
@@ -128,7 +133,7 @@ int main()
 				else {
 					while (!file.eof()) {
 						string s;
-						//file >> s;
+						getline(cin, s);
 						cout << s << "\n";
 					}
 				}
@@ -147,7 +152,7 @@ int main()
 
 	return 0;
 }
-
+//atof
 bool isNumber(string str) {
 	for (int i = 0; i < str.length(); i++) {
 		if (str[i] < '0' || str[i] > '9') return false;
@@ -177,7 +182,7 @@ int input() {
 			cout << "Nhap lai\n";
 			continue;
 		}
-		if (choose < 0 || choose > 4) {
+		if (choose <= 0 || choose > 5) {
 			cout << "Nhap lai\n";
 			continue;
 		}
@@ -207,4 +212,39 @@ int inputNum() {
 	return num;
 }
 
+int inputID() {
+	string c;
+	int num = 0;
+	while (true) {
+		cout << "id: ";
+		getline(cin, c);
+
+		if (isNumber(c)) {
+			num = strToNum(c);
+			break;
+		}
+		else {
+			cout << "Nhap lai\n";
+		}
+	}
+	return num;
+}
+
+int inputScore() {
+	string c;
+	int num = 0;
+	while (true) {
+		cout << "score: ";
+		getline(cin, c);
+
+		if (isNumber(c)) {
+			num = strToNum(c);
+			break;
+		}
+		else {
+			cout << "Nhap lai\n";
+		}
+	}
+	return num;
+}
 // ham tra ve so 0
