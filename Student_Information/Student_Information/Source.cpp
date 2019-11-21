@@ -39,7 +39,6 @@ int main()
 		cout << "-----------------\n";
 		
 		choose = input();   // nhap lua chon
-		//if (choose == 0) choose = input();
 
 		switch (choose){
 			case 1: {
@@ -126,14 +125,16 @@ int main()
 			}
 
 			case 4: {
+				ifstream f;
+				f.open("C:/Users/Admin/Desktop/C-/data.txt");
 				cout << "data in file: \n";
 				if (!file) {
 					cout << "File chua duoc tao.\n";
 				}
 				else {
-					while (!file.eof()) {
+					while (!f.eof()) {
 						string s;
-						getline(cin, s);
+						f >> s;
 						cout << s << "\n";
 					}
 				}
