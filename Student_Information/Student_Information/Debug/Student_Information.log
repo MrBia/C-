@@ -1,2 +1,2 @@
 ﻿  Source.cpp
-  Student_Information.vcxproj -> C:\Users\Admin\Desktop\C-\Student_Information\Debug\Student_Information.exe
+C:\Users\Admin\Desktop\C-\Student_Information\Student_Information\Source.cpp(126): error C2676: binary '>>': 'std::ofstream' does not define this operator or a conversion to a type acceptable to the predefined operator

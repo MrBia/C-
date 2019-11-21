@@ -3,6 +3,7 @@
 #include <list>
 #include <iterator>
 #include <iomanip>
+#include <fstream>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ int main()
 {
 	list <Student> listStudent;
 	Student stdn;
-
+	ofstream file;
 
 	
 	while (true) {
@@ -92,6 +93,41 @@ int main()
 				}
 
 				
+				break;
+			}
+
+			case 3: {
+				const char* filePath = "C:/Users/Admin/Desktop/C-/data.txt";
+
+				//ofstream file;
+				file.open("C:/Users/Admin/Desktop/C-/data.txt");             // mo file, neu chua co thi tao
+				if (!file) {
+					cout << "cannot open file \n";
+				}
+				else {
+					cout << "file is opened\n";
+					list<Student>::iterator p;
+					for (p = listStudent.begin(); p != listStudent.end(); p++) {
+						file << (*p).id << " " << (*p).name << " " << (*p).score << "\n";
+					}
+				}
+				file.close();
+				break;
+			}
+
+			case 4: {
+				cout << "data in file: \n";
+				if (!file) {
+					cout << "File chua duoc tao.\n";
+				}
+				else {
+					while (!file.eof()) {
+						string s;
+						file.get;
+						cout << s << "\n";
+					}
+				}
+
 				break;
 			}
 
