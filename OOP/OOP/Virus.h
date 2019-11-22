@@ -2,6 +2,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <time.h>
+//#include <cstdlib>
 using namespace std;
 class Virus
 {
@@ -20,7 +22,7 @@ public:
 	void ReduceResistance(int);
 
 	virtual void DoBorn() = 0;
-	virtual Virus* DoClone() = 0;
+	virtual Virus** DoClone() = 0;
 	virtual void DoDie() = 0;
 	virtual void InitResistance() = 0;
 };

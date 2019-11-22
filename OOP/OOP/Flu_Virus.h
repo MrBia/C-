@@ -1,6 +1,6 @@
 #pragma once
 #include "Virus.h"
-#include <time.h>
+
 class Flu_Virus :public Virus
 {
 private:
@@ -13,7 +13,7 @@ public:
 	int Get_Color();
 
 	void DoBorn();
-	Virus* DoClone();
+	Virus** DoClone();
 	void DoDie();
 	void InitResistance();
 };

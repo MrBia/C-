@@ -7,5 +7,12 @@ private:
 public:
 	Dengue_Virus();
 	~Dengue_Virus();
+	Dengue_Virus(char *);
+	char* Get_Protein();
+
+	void DoBorn();
+	Virus** DoClone();
+	void DoDie();
+	void InitResistance();
 };
 
