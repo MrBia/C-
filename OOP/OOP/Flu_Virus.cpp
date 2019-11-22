@@ -40,8 +40,8 @@ void Flu_Virus::DoBorn() {
 
 Virus** Flu_Virus::DoClone()              // khi ra khoi ham thi con tro vr co bi huy khong ????????????????? saiiiiiiiiiiiii
 {
-	Virus** list = new Virus*;
-	/*Virus* vr = new Flu_Virus(this->Get_Color());        // new Flu_Virus() de khi goi cac phuong thuc bij ghi de thi no lay cac phuong thuc o lop con
+	Virus** list = new Virus*[1];
+	/*Virus* vr = new Flu_Virus(this->Get_Color());        // new Flu_Virus() de khi goi cac phuong thuc bij ghi de thi no lay cac phuong thuc o lop con- da hinh
 	vr->Set_dna(this->Get_dna());
 	vr->Set_Resistance(this->Get_Resistance());
 	

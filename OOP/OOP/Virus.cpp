@@ -40,7 +40,7 @@ void Virus::LoadADNInformation()
 {
 	string dna = "";
 	ifstream file;
-	file.open("C:\Users\Admin\Desktop\C-\OOP\ATGX.bin");
+	file.open("C:/Users/Admin/Desktop/C-/OOP/ATGX.bin");
 	if (!file) {
 		cout << "khong the mo file!\n";
 	}

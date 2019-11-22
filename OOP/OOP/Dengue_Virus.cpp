@@ -66,13 +66,25 @@ void Dengue_Virus::InitResistance()
 {
 	srand(time(0));
 	int r;
-	if (this->Get_Protein[2] == '3') {
+	if (*(this->Get_Protein()+2) == '3') {
 		r = 1 + rand() % (10 + 1 - 1);
 	}
-	else if (this->Get_Protein[2] == '5') {
+	else if (*(this->Get_Protein() + 2) == '5') {
 		r = 11 + rand() % (20 + 1 - 11);
 	}
 	else {
 		r = 21 + rand() % (30 + 1 - 21);
 	}
+
+	this->Set_Resistance(r);
+	// or
+	/*if (this->m_protein[2] == '3') {
+		r = 1 + rand() % (10 + 1 - 1);
+	}
+	else if (this->m_protein[2] == '5') {
+		r = 11 + rand() % (20 + 1 - 11);
+	}
+	else {
+		r = 21 + rand() % (30 + 1 - 21);
+	}*/
 }

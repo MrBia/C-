@@ -1,8 +1,9 @@
 #pragma once
 #include <list>
 #include "Virus.h"
+#include "Flu_Virus.h"
+#include "Dengue_Virus.h"
 
-//using namespace std;  - list      da co trong virus.h 
 class patient
 {
 private:
@@ -14,8 +15,9 @@ public:
 	~patient();
 	double InitResistance();
 	void DoStart();
-	void TakeMedicine();
+	void TakeMedicine(int);
 	void DoDie();
 	int GetState();
+	int random(int, int);
 };
 

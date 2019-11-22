@@ -1,2 +1,3 @@
-﻿  Flu_Virus.cpp
+﻿  Virus.cpp
+C:\Users\Admin\Desktop\C-\OOP\OOP\Virus.cpp(55): warning C4018: '<': signed/unsigned mismatch
   OOP.vcxproj -> C:\Users\Admin\Desktop\C-\OOP\Debug\OOP.exe
