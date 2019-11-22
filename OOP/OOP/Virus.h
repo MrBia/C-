@@ -1,5 +1,7 @@
 #pragma once
-//#include <iostream>
+#include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
 class Virus
 {
@@ -9,12 +11,13 @@ private:
 public:
 	Virus();
 	~Virus();
-	Virus(char*, int);
+	void Set_Resistance(int);
+	Virus(const Virus& vr);
 	void LoadADNInformation();
-	//void ReduceResistance();
+	void ReduceResistance(int);
 
 	virtual void DoBorn() = 0;
-	virtual void DoClone() = 0;
+	virtual Virus* DoClone() = 0;
 	virtual void DoDie() = 0;
 	virtual void InitResistance() = 0;
 };
