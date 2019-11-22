@@ -8,10 +8,26 @@ Virus::Virus()
 
 Virus::~Virus()
 {
+	delete m_dna;
 }
 
 void Virus::Set_Resistance(int resistance) {
 	this->m_resistance = resistance;
+}
+
+int Virus::Get_Resistance()
+{
+	return this->m_resistance;
+}
+
+void Virus::Set_dna(char* dna)
+{
+	this->m_dna = dna;
+}
+
+char* Virus::Get_dna()
+{
+	return this->m_dna;
 }
 
 Virus::Virus(const Virus& vr)

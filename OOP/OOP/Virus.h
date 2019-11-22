@@ -12,6 +12,9 @@ public:
 	Virus();
 	~Virus();
 	void Set_Resistance(int);
+	int Get_Resistance();
+	void Set_dna(char *);
+	char* Get_dna();
 	Virus(const Virus& vr);
 	void LoadADNInformation();
 	void ReduceResistance(int);

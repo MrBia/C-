@@ -8,6 +8,9 @@ private:
 public:
 	Flu_Virus();
 	~Flu_Virus();
+	Flu_Virus(int);
+	void Set_Color(int);
+	int Get_Color();
 
 	void DoBorn();
 	Virus* DoClone();
