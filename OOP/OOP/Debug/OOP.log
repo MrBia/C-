@@ -1,2 +1,6 @@
-﻿  Source.cpp
+﻿  MyPoint.cpp
+C:\Users\Admin\Desktop\C-\OOP\OOP\MyPoint.cpp(42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Source.cpp
+  Virus.cpp
+  Generating Code...
   OOP.vcxproj -> C:\Users\Admin\Desktop\C-\OOP\Debug\OOP.exe

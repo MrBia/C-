@@ -39,6 +39,6 @@ int MyPoint::GetY() {
 
 float MyPoint::Distance(MyPoint p) {
 	float dis;
-	dis = sqrt(pow(p.mPosX, 2) + pow(p.mPosY, 2));
+	dis = sqrt(pow(abs(this->mPosX - p.GetX()), 2) + pow(abs(this->mPosY - p.GetY()), 2));
 	return dis;
 }
