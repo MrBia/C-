@@ -123,12 +123,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Dengue_Virus.cpp" />
+    <ClCompile Include="Flu_Virus.cpp" />
     <ClCompile Include="MyPoint.cpp" />
+    <ClCompile Include="patient.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Virus.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dengue_Virus.h" />
+    <ClInclude Include="Flu_Virus.h" />
     <ClInclude Include="MyPoint.h" />
+    <ClInclude Include="patient.h" />
     <ClInclude Include="Virus.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
