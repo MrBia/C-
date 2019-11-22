@@ -1,4 +1,2 @@
-﻿  MyPoint.cpp
-C:\Users\Admin\Desktop\C-\OOP\OOP\MyPoint.cpp(14): error C2062: type 'int' unexpected
-C:\Users\Admin\Desktop\C-\OOP\OOP\MyPoint.cpp(14): error C2143: syntax error: missing ';' before '{'
-C:\Users\Admin\Desktop\C-\OOP\OOP\MyPoint.cpp(14): error C2447: '{': missing function header (old-style formal list?)
+﻿  Source.cpp
+  OOP.vcxproj -> C:\Users\Admin\Desktop\C-\OOP\Debug\OOP.exe

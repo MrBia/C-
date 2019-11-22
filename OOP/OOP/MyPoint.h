@@ -14,7 +14,7 @@ public:
 	int GetX();
 	void SetY(int);
 	int GetY();
-	int Distance(MyPoint);
+	float Distance(MyPoint);
 	~MyPoint();
 };
 
