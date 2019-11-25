@@ -12,6 +12,13 @@ Dengue_Virus::~Dengue_Virus()
 {
 }
 
+Dengue_Virus::Dengue_Virus(const Dengue_Virus& vr)
+{
+	for (int i = 0; i < 4; i++) {
+		this->m_protein[i] = vr.m_protein[i];
+	}
+}
+
 Dengue_Virus::Dengue_Virus(char* protein)
 {
 	for (int i = 0; i < 4; i++) {
@@ -49,9 +56,10 @@ Virus** Dengue_Virus::DoClone()
 	Virus** list = new Virus*[2];
 
 	for (int i = 0; i < 2; i++) {
-		list[i] = new Dengue_Virus(this->Get_Protein());
+		/*list[i] = new Dengue_Virus(this->Get_Protein());
 		list[i]->Set_dna(this->Get_dna());
-		list[i]->Set_Resistance(this->Get_Resistance());
+		list[i]->Set_Resistance(this->Get_Resistance());*/
+		list[i] = new Dengue_Virus(*this);
 	}
 	
 	return list;

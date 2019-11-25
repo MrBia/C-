@@ -8,7 +8,8 @@ private:
 public:
 	Flu_Virus();
 	~Flu_Virus();
-	Flu_Virus(int);
+	Flu_Virus(const Flu_Virus& vr);
+	//Flu_Virus(int);
 	void Set_Color(int);
 	int Get_Color();
 

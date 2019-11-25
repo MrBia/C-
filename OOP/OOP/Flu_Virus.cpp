@@ -14,10 +14,15 @@ Flu_Virus::~Flu_Virus()
 	this->DoDie();
 }
 
-Flu_Virus::Flu_Virus(int color)
+Flu_Virus::Flu_Virus(const Flu_Virus& vr)
 {
-	this->m_color = color;
+	this->m_color = vr.m_color;
 }
+
+//Flu_Virus::Flu_Virus(int color)
+//{
+//	this->m_color = color;
+//}
 
 void Flu_Virus::Set_Color(int color)
 {
@@ -41,15 +46,9 @@ void Flu_Virus::DoBorn() {
 Virus** Flu_Virus::DoClone()              // khi ra khoi ham thi con tro vr co bi huy khong ????????????????? saiiiiiiiiiiiii
 {
 	Virus** list = new Virus*[1];
-	/*Virus* vr = new Flu_Virus(this->Get_Color());        // new Flu_Virus() de khi goi cac phuong thuc bij ghi de thi no lay cac phuong thuc o lop con- da hinh
-	vr->Set_dna(this->Get_dna());
-	vr->Set_Resistance(this->Get_Resistance());
-	
-	list = &vr;*/
 
-	list[0] = new Flu_Virus(this->Get_Color());
-	list[0]->Set_dna(this->Get_dna());
-	list[0]->Set_Resistance(this->Get_Resistance());
+	list[0] = new Flu_Virus(*this);
+
 	return list;
 }
 
