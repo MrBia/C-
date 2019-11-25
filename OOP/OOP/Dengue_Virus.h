@@ -11,6 +11,7 @@ public:
 	Dengue_Virus(char *);
 	char* Get_Protein();
 
+	void show();
 	void DoBorn();
 	Virus** DoClone();
 	void DoDie();

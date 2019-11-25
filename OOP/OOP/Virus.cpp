@@ -18,6 +18,7 @@ void Virus::Set_Resistance(int resistance) {
 int Virus::Get_Resistance()
 {
 	return this->m_resistance;
+	
 }
 
 void Virus::Set_dna(char* dna)
@@ -51,12 +52,19 @@ void Virus::LoadADNInformation()
 			dna = dna + s;
 		}
 	}
-	m_dna = new char[dna.length()];
-	for (int i = 0; i < dna.length(); i++) {
-		*m_dna = dna[i];
+	
+	this->m_dna = new char[dna.size()];
+	for (int i = 0; i < dna.size(); i++) {
+		m_dna[i] = dna[i];
 	}
+	/*char* s = this->Get_dna();
+	for (int i = 0; i < sizeof(s) / 2; i++) {
+		cout << s[i];
+	}
+	cout << "\n";*/
 }
 
 void Virus::ReduceResistance(int medicine_resistance) {
 	this->m_resistance -= medicine_resistance;
 }
+

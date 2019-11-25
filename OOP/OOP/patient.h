@@ -19,5 +19,6 @@ public:
 	void DoDie();
 	int GetState();
 	int random(int, int);
+	void show();
 };
 

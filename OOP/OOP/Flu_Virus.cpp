@@ -14,15 +14,13 @@ Flu_Virus::~Flu_Virus()
 	this->DoDie();
 }
 
-Flu_Virus::Flu_Virus(const Flu_Virus& vr)
+Flu_Virus::Flu_Virus(const Flu_Virus& vr):Virus(vr)
 {
 	this->m_color = vr.m_color;
+
 }
 
-//Flu_Virus::Flu_Virus(int color)
-//{
-//	this->m_color = color;
-//}
+
 
 void Flu_Virus::Set_Color(int color)
 {
@@ -36,14 +34,14 @@ int Flu_Virus::Get_Color()
 
 void Flu_Virus::DoBorn() {
 	LoadADNInformation();
-	srand(time(0));
-	int r = 0 + rand() % (255 + 1 - 0);
+
+	int r = random(1, 100);
 
 	if(r % 2 == 0) this->m_color = 1;     // red virus
 	else this->m_color = 2;               // blue virus
 }
 
-Virus** Flu_Virus::DoClone()              // khi ra khoi ham thi con tro vr co bi huy khong ????????????????? saiiiiiiiiiiiii
+Virus** Flu_Virus::DoClone()              
 {
 	Virus** list = new Virus*[1];
 
@@ -60,14 +58,36 @@ void Flu_Virus::DoDie()
 }
 
 void Flu_Virus::InitResistance() {
-	srand(time(0));
-	int r;
+	int r = 0;
+	
 	if (this->m_color == 1) {               // red virus
-		r = 10 + rand() % (20 + 1 - 10);
+		r = random(10, 20);
+
 	}
 	else if (this->m_color == 2){           // blue color
-		r = 10 + rand() % (15 + 1 - 10);
-	}
+		r = random(10, 15);
 
+	}
+	
 	this->Set_Resistance(r);
+}
+
+void Flu_Virus::show()
+{
+	cout << "Flu virus: \n";
+	if (this->m_color == 1) cout << "color of virus: RED\n";
+	else cout << "color of virus: BLUE\n";
+	cout << "dna: ";
+	char* s = this->Get_dna();
+	for (int i = 0; i < 40; i++) {
+		cout << s[i];
+	}
+	cout << "\n";
+	cout << "resistance: " << this->Get_Resistance() << "\n\n";
+}
+
+int Flu_Virus::random(int min, int max)
+{
+	int k = min + rand() % (max + 1 - min);
+	return k;
 }

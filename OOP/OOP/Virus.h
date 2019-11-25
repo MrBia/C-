@@ -21,6 +21,7 @@ public:
 	void LoadADNInformation();
 	void ReduceResistance(int);
 
+	virtual void show() = 0;
 	virtual void DoBorn() = 0;
 	virtual Virus** DoClone() = 0;
 	virtual void DoDie() = 0;

@@ -5,16 +5,21 @@
 int main()
 {
 	patient p;
-	char t;
+	int t;
+	p.show();
 	while (p.GetState() == 1) {
 		printf("Take Medicine (0 = NO, 1 = YES)\n"); 
-		//scanf("%c", &t);
+
 		cin >> t;
 		if (t == 1) {
 			int min = 1;
-			int max = 60; 
+			int max = 30; 
+			srand(time(0));
 			int medicine_resistance = min + rand() % (max - min + 1);
+			cout << "mecidin: " << medicine_resistance << "\n";
 			p.TakeMedicine(medicine_resistance);
+			p.show();
+			
 		}
 	}
 

@@ -9,7 +9,6 @@ public:
 	Flu_Virus();
 	~Flu_Virus();
 	Flu_Virus(const Flu_Virus& vr);
-	//Flu_Virus(int);
 	void Set_Color(int);
 	int Get_Color();
 
@@ -17,5 +16,7 @@ public:
 	Virus** DoClone();
 	void DoDie();
 	void InitResistance();
+	void show();
+	int random(int, int);
 };
 
