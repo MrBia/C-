@@ -23,7 +23,6 @@ void patient::DoStart()
 
 	int r;
 	int k;
-	int m = 200;
 	
 	r = random(10, 20);
 
@@ -40,7 +39,6 @@ void patient::DoStart()
 			
 		}
 		this->m_virusList.push_back(vr);
-		m += 150;
 	}
 
 	this->m_state = 1;
@@ -59,14 +57,14 @@ void patient::TakeMedicine(int medicine_resistance)
 		(**virut).ReduceResistance(medicine_resistance);
 
 		if ((**virut).Get_Resistance() <= 0) {
-			tempVirut = virut;
-			virut++;
 			l++;
-			this->m_virusList.erase(tempVirut);
+			len--;
+			virut = this->m_virusList.erase(virut);
 			continue;
 		}
 		else {
 			Virus** virus_clone = (**virut).DoClone();
+			//cout << "aaaaa: " << sizeof(**virus_clone) << "bbbbbbbb: " << sizeof(Dengue_Virus) << "\n";
 			if (sizeof(**virus_clone) == sizeof(Dengue_Virus)) {							// if return 2 virut        Dengue_Virus
 				this->m_virusList.push_back(*virus_clone);									// push_front
 				this->m_virusList.push_back(*(virus_clone + 1));				// neu push_back thi virus tao ra se -resistance 1 lan nua			

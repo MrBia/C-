@@ -33,7 +33,17 @@ char* Virus::Get_dna()
 
 Virus::Virus(const Virus& vr)
 {
-	this->m_dna = vr.m_dna;
+	int i = 0;
+	int size = 0;
+	while (true) {
+		if (vr.m_dna[i] == 'A' || vr.m_dna[i] == 'T' || vr.m_dna[i] == 'G' || vr.m_dna[i] == 'X') size++;
+		else break;
+		i++;
+	}
+	this->m_dna = new char[size];
+	for (int i = 0; i < size; i++) {
+		this->m_dna[i] = vr.m_dna[i];
+	}
 	this->m_resistance = vr.m_resistance;
 }
 

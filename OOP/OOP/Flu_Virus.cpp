@@ -79,7 +79,14 @@ void Flu_Virus::show()
 	else cout << "color of virus: BLUE\n";
 	cout << "dna: ";
 	char* s = this->Get_dna();
-	for (int i = 0; i < 40; i++) {
+	int i = 0;
+	int size = 0;
+	while (true) {
+		if (s[i] == 'A' || s[i] == 'T' || s[i] == 'G' || s[i] == 'X') size++;
+		else break;
+		i++;
+	}
+	for (int i = 0; i < size; i++) {
 		cout << s[i];
 	}
 	cout << "\n";
