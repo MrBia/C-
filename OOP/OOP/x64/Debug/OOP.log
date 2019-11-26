@@ -1,0 +1,19 @@
+﻿Build started 11/26/2019 4:12:21 PM.
+     1>Project "C:\Users\Admin\Desktop\C-\OOP\OOP\OOP.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Users\Admin\Desktop\GameLoft\Document\Visual Leak Detector_portable_vs15\include" /ZI /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MT /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt Source.cpp
+         Source.cpp
+     1>c:\users\admin\desktop\c-\oop\oop\source.cpp(18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Admin\Desktop\C-\OOP\x64\Debug\OOP.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG:FASTLINK /PDB:"C:\Users\Admin\Desktop\C-\OOP\x64\Debug\OOP.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Admin\Desktop\C-\OOP\x64\Debug\OOP.lib" /MACHINE:X64 x64\Debug\Dengue_Virus.obj
+         x64\Debug\Flu_Virus.obj
+         x64\Debug\MyPoint.obj
+         x64\Debug\patient.obj
+         x64\Debug\Source.obj
+         x64\Debug\Virus.obj
+         OOP.vcxproj -> C:\Users\Admin\Desktop\C-\OOP\x64\Debug\OOP.exe
+     1>Done Building Project "C:\Users\Admin\Desktop\C-\OOP\OOP\OOP.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.53

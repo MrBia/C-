@@ -4,8 +4,8 @@
 
 Dengue_Virus::Dengue_Virus()
 {
-	DoBorn();
-	InitResistance();
+	this->DoBorn();
+	this->InitResistance();
 }
 
 
@@ -20,12 +20,12 @@ Dengue_Virus::Dengue_Virus(const Dengue_Virus& vr) :Virus(vr)
 	}
 }
 
-Dengue_Virus::Dengue_Virus(char* protein)
-{
-	for (int i = 0; i < 4; i++) {
-		this->m_protein[i] = protein[i];
-	}
-}
+//Dengue_Virus::Dengue_Virus(char* protein)
+//{
+//	for (int i = 0; i < 4; i++) {
+//		this->m_protein[i] = protein[i];
+//	}
+//}
 
 char* Dengue_Virus::Get_Protein()
 {
@@ -54,6 +54,7 @@ void Dengue_Virus::show()          // override
 	for (int i = 0; i < size; i++) {
 		cout << s[i];
 	}
+	s = NULL;
 	cout << "\n";
 	cout << "resistance: " << this->Get_Resistance() << "\n\n";
 }
@@ -86,10 +87,12 @@ Virus** Dengue_Virus::DoClone()
 	Virus** list = new Virus*[2];
 
 	for (int i = 0; i < 2; i++) {
-		
+
 		list[i] = new Dengue_Virus(*this);
+		
 	}
-	
+	delete list[0];
+	delete list[1];
 	return list;
 }
 

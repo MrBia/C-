@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <time.h>
+//#include <time>
 //#include <cstdlib>
 using namespace std;
 class Virus
@@ -12,10 +12,10 @@ private:
 	int m_resistance;
 public:
 	Virus();
-	~Virus();
+	virtual ~Virus();
 	void Set_Resistance(int);
 	int Get_Resistance();
-	void Set_dna(char *);
+	void Set_dna(char *);           //danger
 	char* Get_dna();
 	Virus(const Virus& vr);
 	void LoadADNInformation();

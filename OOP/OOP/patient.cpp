@@ -4,6 +4,8 @@
 
 patient::patient()
 {
+	this->m_state = 0;
+	this->m_virusList;
 	this->m_resistance = random(1000, 9000);
 	DoStart();
 }
@@ -11,6 +13,13 @@ patient::patient()
 
 patient::~patient()
 {
+	//DoDie();
+	list<Virus*>::iterator virut = m_virusList.begin();
+	while (virut != this->m_virusList.end()) {
+		delete *virut;
+		virut++;
+	}
+	this->m_virusList.clear();
 }
 
 double patient::InitResistance()
@@ -25,19 +34,19 @@ void patient::DoStart()
 	int k;
 	
 	r = random(10, 20);
-
+	Virus* vr;
 	for (int i = 0; i < r; i++) {
 		k = random(1, 30);
-
-		Virus* vr;
+		
 		if (k % 2 == 0) {
-			vr = new Flu_Virus;
+			vr = new Flu_Virus;        // leak
 			
 		}
 		else {
-			vr = new Dengue_Virus;
+			vr = new Dengue_Virus;		// no leak
 			
 		}
+	
 		this->m_virusList.push_back(vr);
 	}
 
@@ -49,7 +58,7 @@ void patient::TakeMedicine(int medicine_resistance)
 
 	int Total_Virus_Resistance = 0;
 	list<Virus*>::iterator virut = this->m_virusList.begin();
-	list<Virus*>::iterator tempVirut;
+
 	int len = this->m_virusList.size();
 	int l = 0;
 	
@@ -58,24 +67,29 @@ void patient::TakeMedicine(int medicine_resistance)
 
 		if ((**virut).Get_Resistance() <= 0) {
 			l++;
-			len--;
+			Virus* v = *virut;
 			virut = this->m_virusList.erase(virut);
-			continue;
+			delete v;
 		}
+		//else virut++;
 		else {
 			Virus** virus_clone = (**virut).DoClone();
-			//cout << "aaaaa: " << sizeof(**virus_clone) << "bbbbbbbb: " << sizeof(Dengue_Virus) << "\n";
+			
 			if (sizeof(**virus_clone) == sizeof(Dengue_Virus)) {							// if return 2 virut        Dengue_Virus
-				this->m_virusList.push_back(*virus_clone);									// push_front
-				this->m_virusList.push_back(*(virus_clone + 1));				// neu push_back thi virus tao ra se -resistance 1 lan nua			
+				//this->m_virusList.push_back(*virus_clone);									// push_front
+				//this->m_virusList.push_back(*(virus_clone + 1));				// neu push_back thi virus tao ra se -resistance 1 lan nua			
+				//delete virus_clone[0];
+				//delete virus_clone[1];
 			}
 			else {																			// if return 1 virut		 Flu_Virus
-				this->m_virusList.push_back(*virus_clone);
+				//this->m_virusList.push_back(*virus_clone);
+				//delete virus_clone[0];
 			}
+			delete[] virus_clone;
 			Total_Virus_Resistance += (**virut).Get_Resistance();
+			virut++;
+			l++;
 		}
-		virut++;
-		l++;
 	}
 	
 
@@ -87,9 +101,10 @@ void patient::TakeMedicine(int medicine_resistance)
 void patient::DoDie()
 {
 	this->m_state = 0;
-	list<Virus*>::iterator virut;
-	for (virut = this->m_virusList.begin(); virut != this->m_virusList.end(); virut++) {
-		delete* virut;
+	list<Virus*>::iterator virut = m_virusList.begin();
+	while (virut != this->m_virusList.end()) {
+		delete *virut;
+		virut++;
 	}
 }
 

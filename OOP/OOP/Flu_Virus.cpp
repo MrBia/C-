@@ -11,7 +11,7 @@ Flu_Virus::Flu_Virus()
 
 Flu_Virus::~Flu_Virus()
 {
-	this->DoDie();
+	//this->DoDie();           // neu de dong nay thi set m_dna = dia chi con tro kieu char tro toi null=> leak 
 }
 
 Flu_Virus::Flu_Virus(const Flu_Virus& vr):Virus(vr)
@@ -45,7 +45,10 @@ Virus** Flu_Virus::DoClone()
 {
 	Virus** list = new Virus*[1];
 
+	
 	list[0] = new Flu_Virus(*this);
+	delete list[0]; //dung
+
 
 	return list;
 }
@@ -89,6 +92,7 @@ void Flu_Virus::show()
 	for (int i = 0; i < size; i++) {
 		cout << s[i];
 	}
+	s = NULL;
 	cout << "\n";
 	cout << "resistance: " << this->Get_Resistance() << "\n\n";
 }

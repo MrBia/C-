@@ -3,12 +3,14 @@
 
 Virus::Virus()
 {
+	this->m_dna = NULL;
 }
 
 
 Virus::~Virus()
 {
-	delete m_dna;
+	delete[] this->m_dna;
+	this->m_dna = NULL;
 }
 
 void Virus::Set_Resistance(int resistance) {
@@ -40,6 +42,7 @@ Virus::Virus(const Virus& vr)
 		else break;
 		i++;
 	}
+	
 	this->m_dna = new char[size];
 	for (int i = 0; i < size; i++) {
 		this->m_dna[i] = vr.m_dna[i];
@@ -65,13 +68,9 @@ void Virus::LoadADNInformation()
 	
 	this->m_dna = new char[dna.size()];
 	for (int i = 0; i < dna.size(); i++) {
-		m_dna[i] = dna[i];
+		this->m_dna[i] = dna[i];
 	}
-	/*char* s = this->Get_dna();
-	for (int i = 0; i < sizeof(s) / 2; i++) {
-		cout << s[i];
-	}
-	cout << "\n";*/
+
 }
 
 void Virus::ReduceResistance(int medicine_resistance) {

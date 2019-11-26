@@ -1,9 +1,11 @@
 #include <cstdlib>
 #include "patient.h"
-
+#include <time.h>
+#include <vld.h>
 
 int main()
 {
+	
 	patient p;
 	int t;
 	p.show();
@@ -20,6 +22,9 @@ int main()
 			p.TakeMedicine(medicine_resistance);
 			p.show();
 			
+		}
+		else if (t == 2) {
+			break;
 		}
 	}
 
