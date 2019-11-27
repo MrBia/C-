@@ -72,16 +72,24 @@ void patient::TakeMedicine(int medicine_resistance)
 			delete v;
 		}
 		else {
-			Virus* virus_clone = (**virut).DoClone();
-			if (sizeof(*virus_clone) == sizeof(Dengue_Virus)) {							// if return 2 virut        Dengue_Virus
-				this->m_virusList.push_back(virus_clone);
-				//this->m_virusList.push_back(v + 1);
-				virus_clone = NULL;
+			list<Virus*> lis = (**virut).DoClone();
+			list<Virus*>::iterator i;
+			for (i = lis.begin(); i != lis.end(); i++) {
+				this->m_virusList.push_back(*i);
+				*i = NULL;
 			}
-			else {																			// if return 1 virut		 Flu_Virus
-				this->m_virusList.push_back(virus_clone);
-				virus_clone = NULL;
-			}
+
+
+			//Virus* virus_clone = (**virut).DoClone();
+			//if (sizeof(*virus_clone) == sizeof(Dengue_Virus)) {							// if return 2 virut        Dengue_Virus
+			//	this->m_virusList.push_back(virus_clone);
+			//	//this->m_virusList.push_back(v + 1);
+			//	virus_clone = NULL;
+			//}
+			//else {																			// if return 1 virut		 Flu_Virus
+			//	this->m_virusList.push_back(virus_clone);
+			//	virus_clone = NULL;
+			//}
 			
 			Total_Virus_Resistance += (**virut).Get_Resistance();
 			virut++;

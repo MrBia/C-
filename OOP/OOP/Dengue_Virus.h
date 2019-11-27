@@ -14,7 +14,8 @@ public:
 
 	void show();
 	void DoBorn();
-	Virus* DoClone();
+	//Virus* DoClone();
+	list<Virus*> DoClone();
 	void DoDie();
 	void InitResistance();
 };

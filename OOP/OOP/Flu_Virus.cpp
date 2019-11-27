@@ -41,13 +41,24 @@ void Flu_Virus::DoBorn() {
 	else this->m_color = 2;               // blue virus
 }
 
-Virus* Flu_Virus::DoClone()              
-{
-	Virus* list[1];
+//Virus* Flu_Virus::DoClone()              
+//{
+//	Virus* list[1];
+//
+//	list[0] = new Flu_Virus(*this);
+//	
+//	return list[0];
+//}
 
-	list[0] = new Flu_Virus(*this);
-	
-	return list[0];
+list<Virus*> Flu_Virus::DoClone() {
+	list<Virus*> lis;
+	Virus* v;
+	for (int i = 0; i < 1; i++) {
+		v = new Flu_Virus(*this);
+		lis.push_back(v);
+		v = NULL;
+	}
+	return lis;
 }
 
 void Flu_Virus::DoDie()

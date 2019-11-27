@@ -82,15 +82,26 @@ void Dengue_Virus::DoBorn()
 	
 }
 
-Virus* Dengue_Virus::DoClone()
-{
-	Virus* list1[1];
-	for (int i = 0; i < 1; i++) {
+//Virus* Dengue_Virus::DoClone()
+//{
+//	Virus* list1[1];
+//	for (int i = 0; i < 1; i++) {
+//
+//		list1[i] = new Dengue_Virus(*this);
+//		
+//	}
+//	return list1[0];
+//}
 
-		list1[i] = new Dengue_Virus(*this);
-		
+list<Virus*> Dengue_Virus::DoClone() {
+	list<Virus*> lis;
+	Virus* v;
+	for (int i = 0; i < 2; i++) {
+		v = new Dengue_Virus(*this);
+		lis.push_back(v);
+		v = NULL;
 	}
-	return list1[0];
+	return lis;
 }
 
 void Dengue_Virus::DoDie()
