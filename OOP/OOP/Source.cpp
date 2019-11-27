@@ -15,7 +15,7 @@ int main()
 		cin >> t;
 		if (t == 1) {
 			int min = 1;
-			int max = 30; 
+			int max = 10; 
 			srand(time(0));
 			int medicine_resistance = min + rand() % (max - min + 1);
 			cout << "mecidin: " << medicine_resistance << "\n";

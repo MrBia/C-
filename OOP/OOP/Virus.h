@@ -23,7 +23,8 @@ public:
 
 	virtual void show() = 0;
 	virtual void DoBorn() = 0;
-	virtual Virus** DoClone() = 0;
+	virtual Virus* DoClone() = 0;
+	//virtual list<Virus*> DoClone() = 0;
 	virtual void DoDie() = 0;
 	virtual void InitResistance() = 0;
 };

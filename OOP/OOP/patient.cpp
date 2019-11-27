@@ -71,21 +71,18 @@ void patient::TakeMedicine(int medicine_resistance)
 			virut = this->m_virusList.erase(virut);
 			delete v;
 		}
-		//else virut++;
 		else {
-			Virus** virus_clone = (**virut).DoClone();
-			
-			if (sizeof(**virus_clone) == sizeof(Dengue_Virus)) {							// if return 2 virut        Dengue_Virus
-				//this->m_virusList.push_back(*virus_clone);									// push_front
-				//this->m_virusList.push_back(*(virus_clone + 1));				// neu push_back thi virus tao ra se -resistance 1 lan nua			
-				//delete virus_clone[0];
-				//delete virus_clone[1];
+			Virus* virus_clone = (**virut).DoClone();
+			if (sizeof(*virus_clone) == sizeof(Dengue_Virus)) {							// if return 2 virut        Dengue_Virus
+				this->m_virusList.push_back(virus_clone);
+				//this->m_virusList.push_back(v + 1);
+				virus_clone = NULL;
 			}
 			else {																			// if return 1 virut		 Flu_Virus
-				//this->m_virusList.push_back(*virus_clone);
-				//delete virus_clone[0];
+				this->m_virusList.push_back(virus_clone);
+				virus_clone = NULL;
 			}
-			delete[] virus_clone;
+			
 			Total_Virus_Resistance += (**virut).Get_Resistance();
 			virut++;
 			l++;
